@@ -72,8 +72,12 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
+#    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
+    'zookeeper_web_console.zkadmin',
+    'zookeeper_web_console.zktree',
 )
+
+ZOOKEEPER_SERVERS = "127.0.0.1:2181"
