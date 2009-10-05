@@ -2,12 +2,44 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-<title>ZooKeeper ZNode Root</title>
+<title>ZooKeeper ZNode {{znode.path}}</title>
 </head>
 
 <body>
-<h1>ZooKeeper ZNode Root</h1>
+<h1>ZooKeeper ZNode {{znode.path}}</h1>
 
-{{ ZOOKEEPER_SERVERS }}
+Path : {{znode.path}}
+<p>
+
+Data : {{znode.data}}
+<p>
+
+<table>
+  <tr><td>czxid</td><td>{{znode.stat.czxid}}</td></tr>
+  <tr><td>mzxid</td><td>{{znode.stat.mzxid}}</td></tr>
+  <tr><td>ctime</td><td>{{znode.stat.ctime|date}} {{znode.stat.ctime|time}} ({{znode.stat.ctime|timesince}} ago)</td></tr>
+  <tr><td>mtime</td><td>{{znode.stat.mtime|date}} {{znode.stat.mtime|time}} ({{znode.stat.mtime|timesince}} ago)</td></tr>
+  <tr><td>version</td><td>{{znode.stat.version}}</td></tr>
+  <tr><td>cversion</td><td>{{znode.stat.cversion}}</td></tr>
+  <tr><td>aversion</td><td>{{znode.stat.aversion}}</td></tr>
+  <tr><td>ephemeralOwner</td><td>{{znode.stat.ephemeralOwner}}</td></tr>
+  <tr><td>dataLength</td><td>{{znode.stat.dataLength}}</td></tr>
+  <tr><td>pzxid</td><td>{{znode.stat.pzxid}}</td></tr>
+</table>
+
+<p>
+
+{% if znode.children %}
+Children ({{znode.stat.numChildren}})
+<table>
+  {% for child in znode.children %}
+  <tr><td><a href="{{child}}">{{child}}</a></td></tr>
+{% endfor %}
+</table>
+{% else %}
+No Children exist for this znode
+{% endif %}
+
+
 
 </body> </html>

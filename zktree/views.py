@@ -1,9 +1,11 @@
 from django.shortcuts import render_to_response
-from django.conf import settings
-import zookeeper
 
-ZOOKEEPER_SERVERS = getattr(settings,'ZOOKEEPER_SERVERS')
+from zookeeper_dashboard.zktree.models import ZNode
 
-def index(request):
+def index(request, path=""):
+    print(path)
+    path = "/" + path
+    znode = ZNode(path)
+    znode.children.sort()
     return render_to_response('zktree/index.html',
-                              {'ZOOKEEPER_SERVERS':ZOOKEEPER_SERVERS})
+                              {'znode':znode})
