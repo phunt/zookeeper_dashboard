@@ -15,8 +15,8 @@ Data : {{znode.data}}
 <p>
 
 <table>
-  <tr><td>czxid</td><td>{{znode.stat.czxid}}</td></tr>
-  <tr><td>mzxid</td><td>{{znode.stat.mzxid}}</td></tr>
+  <tr><td>czxid</td><td>0x{{znode.stat.czxid|stringformat:"x"}}</td></tr>
+  <tr><td>mzxid</td><td>0x{{znode.stat.mzxid|stringformat:"x"}}</td></tr>
   <tr><td>ctime</td><td>{{znode.stat.ctime|date}} {{znode.stat.ctime|time}} ({{znode.stat.ctime|timesince}} ago)</td></tr>
   <tr><td>mtime</td><td>{{znode.stat.mtime|date}} {{znode.stat.mtime|time}} ({{znode.stat.mtime|timesince}} ago)</td></tr>
   <tr><td>version</td><td>{{znode.stat.version}}</td></tr>
@@ -24,7 +24,7 @@ Data : {{znode.data}}
   <tr><td>aversion</td><td>{{znode.stat.aversion}}</td></tr>
   <tr><td>ephemeralOwner</td><td>{{znode.stat.ephemeralOwner}}</td></tr>
   <tr><td>dataLength</td><td>{{znode.stat.dataLength}}</td></tr>
-  <tr><td>pzxid</td><td>{{znode.stat.pzxid}}</td></tr>
+  <tr><td>pzxid</td><td>0x{{znode.stat.pzxid|stringformat:"x"}}</td></tr>
 </table>
 
 <p>
