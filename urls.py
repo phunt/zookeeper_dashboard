@@ -5,8 +5,8 @@ from django.conf.urls.defaults import *
 # admin.autodiscover()
 
 urlpatterns = patterns('zookeeper_web_console',
-    # Example:
-    # (r'^zookeeper_web_console/', include('zookeeper_web_console.foo.urls')),
+    (r'^cluster/', include('zookeeper_web_console.zkadmin.urls')),
+    (r'^tree/', include('zookeeper_web_console.zktree.urls')),
 
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
@@ -15,6 +15,5 @@ urlpatterns = patterns('zookeeper_web_console',
     # Uncomment the next line to enable the admin:
     # (r'^admin/(.*)', admin.site.root),
 
-    (r'^cluster/', include('zookeeper_web_console.zkadmin.urls')),
-    (r'^tree/', include('zookeeper_web_console.zktree.urls')),
+    (r'^$', include('zookeeper_web_console.zkadmin.urls')),
 )
