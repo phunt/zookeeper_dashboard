@@ -8,6 +8,10 @@
 <body>
 <h1>ZooKeeper Cluster Home</h1>
 
-{{ ZOOKEEPER_SERVERS }}
+<ul>
+{% for sd in server_data %}
+    <li><a href="cluster/server/{{sd.id}}">{{ sd.host }}:{{ sd.port }}</a> : {% ifequal sd.mode "leader" %}<b>{% endifequal %} {{sd.mode|capfirst}} {% ifequal sd.mode "leader" %}</b>{% endifequal %}, {{ sd.sessions|length }} connection(s), v{{ sd.version }}</li>
+{% endfor %}
+</ul>
 
 </body></html>

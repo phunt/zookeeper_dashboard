@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
+<title>ZooKeeper Server {{server_data.id}}</title>
+</head>
+
+<body>
+<h1>ZooKeeper Server {{server_data.host}}:{{server_data.port}}</h1>
+
+<h2>Summary</h2>
+
+<table class="server_summary">
+  <tr><td>Host</td><td>{{server_data.host}}</td></tr>
+  <tr><td>Client port</td><td>{{server_data.port}}</td></tr>
+  <tr><td>Mode</td><td>{{server_data.mode|capfirst}}</td></tr>
+  <tr><td>Zxid</td><td>{{server_data.zxid}}</td></tr>
+  <tr><td>Node count</td><td>{{server_data.node_count}}</td></tr>
+  <tr><td>Connection count</td><td>{{server_data.sessions|length}}</td></tr>
+  <tr><td>Received</td><td>{{server_data.received}}</td></tr>
+  <tr><td>Sent</td><td>{{server_data.sent}}</td></tr>
+  <tr><td>Outstanding</td><td>{{server_data.outstanding}}</td></tr>
+  <tr><td>Max Latency</td><td>{{server_data.max_latency}}</td></tr>
+  <tr><td>Avg Latency</td><td>{{server_data.avg_latency}}</td></tr>
+  <tr><td>Min Latency</td><td>{{server_data.min_latency}}</td></tr>
+</table>
+
+<h2>Connections (clients)</h2>
+
+<table class="conn_list">
+  <tr><th>host</th><th>port</th><th>interest ops</th><th>queued#</th><th>recved#</th><th>sent#</th></tr>
+{% for s in server_data.sessions %}
+  <tr class="{% cycle 'oddrow' 'evenrow' %}"><td>{{s.host}}</td><td>{{s.port}}</td><td>{{s.interest_ops}}</td><td>{{s.queued}}</td><td>{{s.recved}}</td><td>{{s.sent}}</td></tr>
+{% endfor %}
+</table>
+
+</body> </html>

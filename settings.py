@@ -1,4 +1,4 @@
-# Django settings for zookeeper_web_console project.
+# Django settings for zookeeper_dashboard project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -63,7 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'zookeeper_web_console.urls'
+ROOT_URLCONF = 'zookeeper_dashboard.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -76,8 +76,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'zookeeper_web_console.zkadmin',
-    'zookeeper_web_console.zktree',
+    'zookeeper_dashboard.zkadmin',
+    'zookeeper_dashboard.zktree',
 )
 
-ZOOKEEPER_SERVERS = "127.0.0.1:2181"
+ZOOKEEPER_SERVERS = "127.0.0.1:2181,127.0.0.1:2183"
