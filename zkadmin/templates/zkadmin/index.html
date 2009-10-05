@@ -2,16 +2,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-<title>ZooKeeper Cluster Home</title>
+<title>ZooKeeper Home</title>
 </head>
 
 <body>
-<h1>ZooKeeper Cluster Home</h1>
+<h1>ZooKeeper Home</h1>
+
+<h2>Cluster Information</h2>
 
 <ul>
 {% for sd in server_data %}
     <li><a href="cluster/server/{{sd.id}}">{{ sd.host }}:{{ sd.port }}</a> : {% ifequal sd.mode "leader" %}<b>{% endifequal %} {{sd.mode|capfirst}} {% ifequal sd.mode "leader" %}</b>{% endifequal %}, {{ sd.sessions|length }} connection(s), v{{ sd.version }}</li>
 {% endfor %}
 </ul>
+
+<h2>Quota Definition</h2>
+
+Information on the current quota configuration
+
+<a href="/tree/zookeeper/quota">Quota</a>
+
+<h2>ZNode Tree</h2>
+
+<a href="/tree">Root ZNode of the cluster</a>
 
 </body></html>
