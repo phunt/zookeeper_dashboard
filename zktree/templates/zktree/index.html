@@ -22,7 +22,9 @@ Data : {{znode.data}}
   <tr><td>version</td><td>{{znode.stat.version}}</td></tr>
   <tr><td>cversion</td><td>{{znode.stat.cversion}}</td></tr>
   <tr><td>aversion</td><td>{{znode.stat.aversion}}</td></tr>
-  <tr><td>ephemeralOwner</td><td>{{znode.stat.ephemeralOwner}}</td></tr>
+{% ifnotequal znode.stat.ephemeralOwner 0 %}
+  <tr><td>ephemeralOwner</td><td>0x{{znode.stat.ephemeralOwner|stringformat:"x"}}</td></tr>
+{% endifnotequal %}
   <tr><td>dataLength</td><td>{{znode.stat.dataLength}}</td></tr>
   <tr><td>pzxid</td><td>0x{{znode.stat.pzxid|stringformat:"x"}}</td></tr>
 </table>
