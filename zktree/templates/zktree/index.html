@@ -31,6 +31,25 @@ Data : {{znode.data}}
 
 <p>
 
+{% if znode.acls %}
+ACLs ({{znode.acls|length}})
+<table>
+  <tr><th>scheme</th><th>id</th><th>perms</th></tr>
+  {% for acl in znode.acls %}
+  <tr><td>{{acl.scheme}}</td><td>{{acl.id}}</td><td>
+    {% for perm in acl.perm_list %}
+    {% if not forloop.first %}, {% endif %}
+    {{perm}}
+    {% endfor %}
+  </td></tr>
+{% endfor %}
+</table>
+{% else %}
+No ACLs exist for this znode
+{% endif %}
+
+<p>
+
 {% if znode.children %}
 Children ({{znode.stat.numChildren}})
 <table>
@@ -41,7 +60,5 @@ Children ({{znode.stat.numChildren}})
 {% else %}
 No Children exist for this znode
 {% endif %}
-
-
 
 </body> </html>
