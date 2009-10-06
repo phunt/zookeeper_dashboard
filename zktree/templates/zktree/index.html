@@ -14,6 +14,8 @@ Path : {{znode.path}}
 Data : {{znode.data}}
 <p>
 
+<h2>Stat Information</h2>
+
 <table>
   <tr><td>czxid</td><td>0x{{znode.stat.czxid|stringformat:"x"}}</td></tr>
   <tr><td>mzxid</td><td>0x{{znode.stat.mzxid|stringformat:"x"}}</td></tr>
@@ -28,8 +30,11 @@ Data : {{znode.data}}
   <tr><td>dataLength</td><td>{{znode.stat.dataLength}}</td></tr>
   <tr><td>pzxid</td><td>0x{{znode.stat.pzxid|stringformat:"x"}}</td></tr>
 </table>
+<a href="http://hadoop.apache.org/zookeeper/docs/current/zookeeperProgrammers.html#sc_zkStatStructure" class="doc">Details on Stat fields</a>
 
 <p>
+
+<h2>ACL Information</h2>
 
 {% if znode.acls %}
 ACLs ({{znode.acls|length}})
@@ -44,14 +49,16 @@ ACLs ({{znode.acls|length}})
   </td></tr>
 {% endfor %}
 </table>
+<a href="http://hadoop.apache.org/zookeeper/docs/current/zookeeperProgrammers.html#sc_ZooKeeperAccessControl" class="doc">Details on ACLs</a>
 {% else %}
 No ACLs exist for this znode
 {% endif %}
 
 <p>
 
+<h2>Children ({{znode.stat.numChildren}})</h2>
+
 {% if znode.children %}
-Children ({{znode.stat.numChildren}})
 <table>
   {% for child in znode.children %}
   <tr><td><a href="{{child}}">{{child}}</a></td></tr>
