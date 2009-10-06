@@ -1,5 +1,11 @@
 # Django settings for zookeeper_dashboard project.
 
+### ZooKeeper specific settings
+
+ZOOKEEPER_SERVERS = "127.0.0.1:2181,127.0.0.1:2183"
+
+### From here down are Django settings
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -79,5 +85,3 @@ INSTALLED_APPS = (
     'zookeeper_dashboard.zkadmin',
     'zookeeper_dashboard.zktree',
 )
-
-ZOOKEEPER_SERVERS = "127.0.0.1:2181,127.0.0.1:2183"
