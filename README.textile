@@ -1,0 +1,40 @@
+h1. ZooKeeper Dashboard
+
+*Author: "Patrick Hunt":http://people.apache.org/~phunt/* (follow me on "twitter":http://twitter.com/phunt)
+
+h2. Summary
+
+"This project":http://github.com/phunt/zookeeper_dashboard uses Django and the zkpython bindings to provide a dashboard for a ZooKeeper ensemble (cluster).
+
+h3. What's Apache ZooKeeper?
+
+From the "official site":http://hadoop.apache.org/zookeeper/: "ZooKeeper is a high-performance coordination service for distributed applications."
+
+It exposes common services - such as naming, configuration management, synchronization, and group services - in a simple interface so you don't have to write them from scratch. You can use it off-the-shelf to implement consensus, group management, leader election, and presence protocols.
+
+h2. Overview
+
+Django and the zkpython bindings are used to provide a dashboard for a ZooKeeper ensemble (cluster).
+
+h2. Requirements
+
+* Django 1.0+
+
+h2. Usage
+
+Edit settings.xml. The top of the file has the ZOOKEEPER specific settings.
+
+* ZOOKEEPER_SERVERS - host:port(,host:port)* of all servers in your cluster.
+
+then start the django server
+
+<code>
+PYTHONPATH=lib.linux-i686-2.6 LD_LIBRARY_PATH=lib.linux-i686-2.6 ./manage.py runserver
+</code>
+
+Finally open a link in your browser to the server: "http://127.0.0.1:8000/":http://127.0.0.1:8000/
+
+*Note*: you may need to compile the zookeeper python binding yourself, this project includes only 32bit linux binaries. Additionally, the django - zookeeper bridge relies on some changes to the zkpython binding that are not yet released, so if you do compile yourself you will need to compile zkpython from the Apache "ZooKeeper SVN trunk":http://hadoop.apache.org/zookeeper/version_control.html (this should be addressed as soon as ZooKeeper 3.3.0 is released).
+
+ZooKeeper client output is written to "cli_log.txt".
+
