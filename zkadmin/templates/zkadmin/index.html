@@ -10,11 +10,12 @@
 
 <h2>Cluster Information</h2>
 
-<ul>
-{% for sd in server_data %}
-    <li><a href="cluster/server/{{sd.id}}">{{ sd.host }}:{{ sd.port }}</a> : {% ifequal sd.mode "leader" %}<b>{% endifequal %} {{sd.mode|capfirst}} {% ifequal sd.mode "leader" %}</b>{% endifequal %}, {{ sd.sessions|length }} connection(s), v{{ sd.version }}</li>
-{% endfor %}
-</ul>
+<table>
+<tr><th>server</th><th>mode</th><th>conn#</th><th>version</th></tr>
+  {% for sd in server_data %}
+  <tr><td><a href="cluster/server/{{sd.id}}">{{ sd.host }}:{{ sd.port }}</a> </td><td> {% ifequal sd.mode "leader" %}<b>{% endifequal %} {{sd.mode|capfirst}} {% ifequal sd.mode "leader" %}</b>{% endifequal %} </td><td> {{ sd.sessions|length }} </td><td> {{ sd.version }}</td></tr>
+  {% endfor %}
+</table>
 
 <h2>Quota Definition</h2>
 
