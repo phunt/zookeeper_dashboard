@@ -38,3 +38,6 @@ Finally open a link in your browser to the server: "http://127.0.0.1:8000/":http
 
 ZooKeeper client output is written to "cli_log.txt".
 
+h2. Limitations
+
+ACLs are not yet fully supported. In particular the django server runs as an un-authenticated user. If nodes are protected by ACLs the server will not be able to access them.

@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -17,3 +18,8 @@ urlpatterns = patterns('zookeeper_dashboard',
 
     (r'^$', include('zookeeper_dashboard.zkadmin.urls')),
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^css/(?P<path>.*)$', 'django.views.static.serve', {'document_root': './css'}),
+    )
