@@ -20,12 +20,18 @@ class Session(object):
 class ZKServer(object):
     def __init__(self, server):
         self.host, self.port = server.split(':')
-        tn = telnetlib.Telnet(self.host, self.port)
+        try:
+            tn = telnetlib.Telnet(self.host, self.port)
 
-        tn.write('stat\n')
+            tn.write('stat\n')
 
-        stat = tn.read_all()
-        tn.close()
+            stat = tn.read_all()
+            tn.close()
+        except:
+            self.mode = "Unavailable"
+            self.sessions = []
+            self.version = "Unknown"
+            return
 
         sio = StringIO.StringIO(stat)
         line = sio.readline()
