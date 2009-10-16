@@ -21,12 +21,8 @@ class ZKServer(object):
     def __init__(self, server):
         self.host, self.port = server.split(':')
         try:
-            tn = telnetlib.Telnet(self.host, self.port)
-
-            tn.write('stat\n')
-
-            stat = tn.read_all()
-            tn.close()
+            stat = self.send_cmd('stat\n')
+            envi = self.send_cmd('envi\n')
         except:
             self.mode = "Unavailable"
             self.sessions = []
@@ -49,3 +45,21 @@ class ZKServer(object):
             self.__dict__[attr] = value.strip()
 
         self.min_latency, self.avg_latency, self.max_latency = self.latency_min_avg_max.split("/")
+
+        self.envi = []
+        sio = StringIO.StringIO(envi)
+        for line in sio:
+            if not line.strip(): break
+            attr, equ, value = line.partition("=")
+            if not equ: continue
+            self.envi.append((attr, value))
+
+    def send_cmd(self, cmd):
+        tn = telnetlib.Telnet(self.host, self.port)
+
+        tn.write(cmd)
+
+        result = tn.read_all()
+        tn.close()
+
+        return result

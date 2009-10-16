@@ -34,4 +34,14 @@
 {% endfor %}
 </table>
 
+<h2>Environment</h2>
+
+<table class="envi_list">
+  <tr><th>Attribute</th><th>Value</th></tr>
+{% for e in server_data.envi %}
+  <tr class="{% cycle 'oddrow' 'evenrow' %}"><td>{{e.0}}</td><td>{{e.1}}</td></tr>
+{% endfor %}
+</table>
+
+
 </body> </html>
