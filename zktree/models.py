@@ -28,7 +28,7 @@ class ZKClient(object):
         self.conn_cv.release()
 
         if not self.connected:
-            raise Error("Unable to connect to %s" % (servers))
+            raise Exception("Unable to connect to %s" % (servers))
 
         print("Connected, handle is %d" % (self.handle))
 
