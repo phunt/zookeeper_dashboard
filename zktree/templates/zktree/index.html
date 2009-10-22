@@ -76,7 +76,7 @@ No ACLs exist for this znode
 {% if znode.children %}
 <table>
   {% for child in znode.children %}
-  <tr class="{% cycle 'oddrow' 'evenrow' %}"><td><a href="{{child}}">{{child}}</a></td></tr>
+  <tr class="{% cycle 'oddrow' 'evenrow' %}"><td><a href="{{child|urlencode}}">{{child}}</a></td></tr>
 {% endfor %}
 </table>
 {% else %}
