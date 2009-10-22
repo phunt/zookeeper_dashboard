@@ -23,6 +23,10 @@ h2. Overview
 
 Django and the zkpython bindings are used to provide a dashboard for a ZooKeeper ensemble (cluster).
 
+h2. License
+
+This project is licensed under the Apache License Version 2.0
+
 h2. Requirements
 
 * Django 1.0+
