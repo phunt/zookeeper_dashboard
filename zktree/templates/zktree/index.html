@@ -1,24 +1,30 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
 <link rel="stylesheet" href="/css/blueprint/screen.css" type="text/css" media="screen, projection">
 <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">	
 <!--[if lt IE 8]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
 <link type="text/css" rel="stylesheet" href="/css/zookeeper_dashboard.css" />
 <title>ZooKeeper ZNode {{znode.path}}</title>
 </head>
 
 <body>
+<div class="container">
 <h1>ZooKeeper ZNode {{znode.path}}</h1>
 
+<hr/>
+<div class="span-24 last">
 Path : {{znode.path}}
 <p>
 
 Data : {{znode.data}}
 <p>
 
+</div>
+<hr/>
+<div class="span-24 last">
 <h2>Stat Information</h2>
 
 <table>
@@ -38,7 +44,9 @@ Data : {{znode.data}}
 <a href="http://hadoop.apache.org/zookeeper/docs/current/zookeeperProgrammers.html#sc_zkStatStructure" class="doc">Details on Stat fields</a>
 
 <p>
-
+</div>
+<hr/>
+<div class="span-24 last">
 <h2>ACL Information</h2>
 
 {% if znode.acls %}
@@ -60,17 +68,21 @@ No ACLs exist for this znode
 {% endif %}
 
 <p>
-
+</div>
+<hr/>
+<div class="span-24 last">
 <h2>Children ({{znode.stat.numChildren}})</h2>
 
 {% if znode.children %}
 <table>
   {% for child in znode.children %}
-  <tr><td><a href="{{child}}">{{child}}</a></td></tr>
+  <tr class="{% cycle 'oddrow' 'evenrow' %}"><td><a href="{{child}}">{{child}}</a></td></tr>
 {% endfor %}
 </table>
 {% else %}
 No Children exist for this znode
 {% endif %}
+</div>
+</div>
 
 </body> </html>

@@ -11,25 +11,39 @@
 </head>
 
 <body>
+<div class="container">
 <h1>ZooKeeper Dashboard</h1>
-
+<hr/>
+<div class="span-24 last">
 <h2>Cluster Information</h2>
 
 <table>
 <tr><th>server</th><th>mode</th><th>#conn</th><th>version</th></tr>
   {% for sd in server_data %}
-  <tr><td><a href="cluster/server/{{sd.id}}">{{ sd.host }}:{{ sd.port }}</a> </td><td> {% ifequal sd.mode "leader" %}<b>{% endifequal %} {{sd.mode|capfirst}} {% ifequal sd.mode "leader" %}</b>{% endifequal %} </td><td> {{ sd.sessions|length }} </td><td> {{ sd.version }}</td></tr>
+  <tr class="{% cycle 'oddrow' 'evenrow' %}"><td><a href="cluster/server/{{sd.id}}">{{ sd.host }}:{{ sd.port }}</a> </td><td> {% ifequal sd.mode "leader" %}<b>{% endifequal %} {{sd.mode|capfirst}} {% ifequal sd.mode "leader" %}</b>{% endifequal %} </td><td> {{ sd.sessions|length }} </td><td> {{ sd.version }}</td></tr>
   {% endfor %}
 </table>
+<p>
+</div>
 
+<hr/>
+
+<div class="span-24 last">
 <h2>ZNode Tree</h2>
 
 <a href="/tree">Root ZNode of the cluster</a>
-
+<p>
+</div>
+<hr/>
+<div class="span-24 last">
 <h2>Quota Definition</h2>
 
 Information on the current quota configuration
 
 <a href="/tree/zookeeper/quota">Quota</a>
+<p>
+</div>
+<hr/>
+</div>
 
 </body></html>

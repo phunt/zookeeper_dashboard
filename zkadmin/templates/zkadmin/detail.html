@@ -6,12 +6,15 @@
 <link rel="stylesheet" href="/css/blueprint/print.css" type="text/css" media="print">	
 <!--[if lt IE 8]><link rel="stylesheet" href="/css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 
+<link type="text/css" rel="stylesheet" href="/css/zookeeper_dashboard.css" />
 <title>ZooKeeper Server {{server_data.id}}</title>
 </head>
 
 <body>
+<div class="container">
 <h1>ZooKeeper Server {{server_data.host}}:{{server_data.port}}</h1>
-
+<hr/>
+<div class="span-24 last">
 <h2>Summary</h2>
 
 <table class="server_summary">
@@ -28,7 +31,9 @@
   <tr><td>Avg Latency</td><td>{{server_data.avg_latency}}</td></tr>
   <tr><td>Min Latency</td><td>{{server_data.min_latency}}</td></tr>
 </table>
-
+</div>
+<hr/>
+<div class="span-24 last">
 <h2>Connections (clients)</h2>
 
 <table class="conn_list">
@@ -37,7 +42,9 @@
   <tr class="{% cycle 'oddrow' 'evenrow' %}"><td>{{s.host}}</td><td>{{s.port}}</td><td>{{s.interest_ops}}</td><td>{{s.queued}}</td><td>{{s.recved}}</td><td>{{s.sent}}</td></tr>
 {% endfor %}
 </table>
-
+</div>
+<hr/>
+<div class="span-24 last">
 <h2>Environment</h2>
 
 <table class="envi_list">
@@ -46,6 +53,8 @@
   <tr class="{% cycle 'oddrow' 'evenrow' %}"><td>{{e.0}}</td><td>{{e.1}}</td></tr>
 {% endfor %}
 </table>
-
+</div>
+<hr/>
+</div>
 
 </body> </html>
