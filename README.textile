@@ -54,3 +54,19 @@ ZooKeeper client output is written to "cli_log.txt".
 h2. Limitations
 
 ACLs are not yet fully supported. In particular the django server runs as an un-authenticated user. If nodes are protected by ACLs the server will not be able to access them.
+
+h2. Screenshots
+
+h3. Cluster Summary
+
+<a href="http://www.flickr.com/photos/35605239@N00/4035924997/" title="dashboard_summary by phunt, on Flickr"><img src="http://farm3.static.flickr.com/2483/4035924997_f97e4901ef.jpg" width="500" height="226" alt="dashboard_summary" /></a>
+
+h3. Server Summary
+
+<a href="http://www.flickr.com/photos/35605239@N00/4035924977/" title="dashboard_server_summary by phunt, on Flickr"><img src="http://farm3.static.flickr.com/2630/4035924977_a18d7639f1.jpg" width="500" height="454" alt="dashboard_server_summary" /></a>
+
+h3. ZNode tree
+
+ACLs and child list not shown
+
+<a href="http://www.flickr.com/photos/35605239@N00/4036673608/" title="dashboard_tree_znode by phunt, on Flickr"><img src="http://farm3.static.flickr.com/2495/4036673608_495c4594ef.jpg" width="500" height="457" alt="dashboard_tree_znode" /></a>
