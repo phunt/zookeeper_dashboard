@@ -33,7 +33,7 @@ h2. Requirements
 
 h2. Usage
 
-Edit settings.xml. The top of the file has the ZOOKEEPER specific settings.
+Edit settings.py. The top of the file has the ZOOKEEPER specific settings.
 
 * ZOOKEEPER_SERVERS - host:port(,host:port)* of all servers in your cluster. This is the same information that you provide in your ZooKeeper client configuration.
 
